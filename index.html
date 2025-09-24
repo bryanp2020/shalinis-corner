@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kajal's Corner • Mauritian x Indian Home Kitchen</title>
+  <title>Shalini's Corner • Mauritian x Indian Home Kitchen</title>
   <meta name="description" content="Small-batch, home-style Mauritian and Indian dishes made with love. Rotating menu on select days.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,17 +14,17 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#home"><img src="assets/img/kajal-corner-logo.png" alt="Kajal Corner" class="logo"></a>
-      <nav>
+      <nav aria-label="Primary">
         <a href="#menu">Menu</a>
         <a href="#about">About</a>
         <a href="#hours">Hours</a>
         <a href="#order">Order & Payments</a>
       </nav>
-       <button class="hamburger" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <button class="hamburger" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="mobileMenu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
     </div>
-     <div id="mobileMenu" class="mobile-menu" hidden>
+    <div id="mobileMenu" class="mobile-menu" hidden>
       <a href="#menu" class="mobile-link">Menu</a>
       <a href="#about" class="mobile-link">About</a>
       <a href="#hours" class="mobile-link">Hours</a>
@@ -36,15 +36,13 @@
     <section class="hero container">
       <div class="hero-text">
         <h1>Mauritian × Indian flavors, made at home.</h1>
-        <p>Kajal is Mauritian-born and cooks from the heart—sharing rich culture through soul-warming dishes that’ll blow your mind.</p>
+        <p>Shalini is Mauritian-born and cooks from the heart—sharing rich culture through soul-warming dishes that’ll blow your mind.</p>
         <a class="btn" href="#menu">See This Week’s Menu</a>
         <p class="note">Small-batch cooking • Select days only • Rotating menu</p>
       </div>
       <div class="hero-card" id="todaySpecial">
         <h3>Today's Special</h3>
-        <div class="special-body">
-          <p>Loading…</p>
-        </div>
+        <div class="special-body"><p>Loading…</p></div>
         <small class="hint">Dishes rotate by day. Pre-orders recommended!</small>
       </div>
     </section>
@@ -56,7 +54,6 @@
       <div class="legend">
         <span class="chip veg">Vegetarian</span>
         <span class="chip spicy">Spicy</span>
-        <span class="chip mild">Mild</span>
         <span class="chip halal">Halal-friendly</span>
       </div>
     </section>
@@ -64,9 +61,9 @@
     <section id="about" class="container section">
       <div class="about-wrap">
         <div>
-          <h2>About Kajal</h2>
-          <p>Born in Mauritius with roots that intertwine the best of Mauritian and Indian traditions, Kajal cooks the way families do—slow, careful, and generous. Every dish is a love letter to home: fluffy rotis, vibrant curries, street-style snacks, and sweet finishes inspired by island markets and Indian festivals.</p>
-          <p>Kajal’s Corner is part-time and small-batch: when the pots are empty, that’s it! Follow the weekly menu, order ahead, and treat yourself to flavors you won’t forget.</p>
+          <h2>About Shalini</h2>
+          <p>Born in Mauritius with roots that intertwine the best of Mauritian and Indian traditions, Shalini cooks the way families do—slow, careful, and generous.</p>
+          <p>Shalini’s Corner is part-time and small-batch: when the pots are empty, that’s it! Follow the weekly menu, order ahead, and treat yourself to flavors you won’t forget.</p>
         </div>
         <figure class="about-img">
           <img src="assets/img/placeholder-plate.jpg" alt="A plated Mauritian x Indian dish" />
@@ -77,7 +74,7 @@
 
     <section id="hours" class="container section">
       <h2>Hours & Availability</h2>
-      <p>Cooking days vary week to week. Typically open <strong>Thu–Sat</strong>. Sunday pop-ups happen occasionally—watch this space.</p>
+      <p>Cooking days vary week to week. Typically open <strong>Thu–Sat</strong>.</p>
       <div class="hours">
         <div class="card">
           <h3>This Week</h3>
@@ -97,37 +94,25 @@
       <h2>Order & Payments</h2>
       <ol class="order-steps">
         <li><strong>Check the menu</strong> above and confirm today’s availability.</li>
-        <li><strong>Place your order</strong> via <a href="mailto:orders@Kajalscorner.example?subject=Order%20Request">email</a> or <a href="tel:+1-000-000-0000">call/text</a>. Include items, quantities, and pickup day/time.</li>
+        <li><strong>Place your order</strong> via <a href="mailto:orders@shaliniscorner.example?subject=Order%20Request">email</a> or <a href="tel:+1-000-000-0000">call/text</a>.</li>
         <li>Wait for a <strong>confirmation message</strong> with total and pickup details.</li>
         <li><strong>Pay</strong> using one of the methods below (or cash with exact change).</li>
       </ol>
 
       <div class="pay-grid">
-        <div class="pay-card">
-          <h3>PayPal</h3>
-          <p><a href="#" id="paypalLink" target="_blank" rel="noopener">paypal.me/Kajals-corner</a></p>
-        </div>
-        <div class="pay-card">
-          <h3>Zelle</h3>
-          <p>Send to: <strong id="zelleHandle">Kajal@example.com</strong></p>
-        </div>
-        <div class="pay-card">
-          <h3>Venmo</h3>
-          <p>@<strong id="venmoHandle">KajalCooks</strong></p>
-        </div>
-        <div class="pay-card warn">
-          <h3>Cash</h3>
-          <p><strong>Exact change only.</strong> Small-batch kitchen—no till on site.</p>
-        </div>
+        <div class="pay-card"><h3>PayPal</h3><p><a href="#" id="paypalLink" target="_blank" rel="noopener">paypal.me/shalinis-corner</a></p></div>
+        <div class="pay-card"><h3>Zelle</h3><p>Send to: <strong id="zelleHandle">shalini@example.com</strong></p></div>
+        <div class="pay-card"><h3>Venmo</h3><p>@<strong id="venmoHandle">ShaliniCooks</strong></p></div>
+        <div class="pay-card warn"><h3>Cash</h3><p><strong>Exact change only.</strong></p></div>
       </div>
 
-      <p class="muted">Note: Payments are processed outside this website. You’ll receive confirmation once your order is accepted.</p>
+      <p class="muted">Note: Payments are processed outside this website.</p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Kajal’s Corner • Mauritian × Indian Home Kitchen</p>
+      <p>© <span id="year"></span> Shalini’s Corner • Mauritian × Indian Home Kitchen</p>
       <p class="tiny">Built as a simple, elegant static site—perfect for GitHub Pages.</p>
     </div>
   </footer>
