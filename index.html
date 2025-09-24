@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shalini's Corner • Mauritian x Indian Home Kitchen</title>
+  <meta name="description" content="Small-batch, home-style Mauritian and Indian dishes made with love. Rotating menu on select days.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">Shalini's Corner</a>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#hours">Hours</a>
+        <a href="#order">Order & Payments</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero container">
+      <div class="hero-text">
+        <h1>Mauritian × Indian flavors, made at home.</h1>
+        <p>Shalini is Mauritian-born and cooks from the heart—sharing rich culture through soul‑warming dishes that’ll blow your mind.</p>
+        <a class="btn" href="#menu">See This Week’s Menu</a>
+        <p class="note">Small-batch cooking • Select days only • Rotating menu</p>
+      </div>
+      <div class="hero-card" id="todaySpecial">
+        <h3>Today's Special</h3>
+        <div class="special-body">
+          <p>Loading…</p>
+        </div>
+        <small class="hint">Dishes rotate by day. Pre‑orders recommended!</small>
+      </div>
+    </section>
+
+    <section id="menu" class="container section">
+      <h2>Rotating Menu</h2>
+      <p class="section-intro">Comfort classics and island favorites. Availability changes by day—check “Hours” and pre‑order early.</p>
+      <div id="menuGrid" class="grid"></div>
+      <div class="legend">
+        <span class="chip veg">Vegetarian</span>
+        <span class="chip spicy">Spicy</span>
+        <span class="chip halal">Halal-friendly</span>
+      </div>
+    </section>
+
+    <section id="about" class="container section">
+      <div class="about-wrap">
+        <div>
+          <h2>About Shalini</h2>
+          <p>Born in Mauritius with roots that intertwine the best of Mauritian and Indian traditions, Shalini cooks the way families do—slow, careful, and generous. Every dish is a love letter to home: fluffy rotis, vibrant curries, street‑style snacks, and sweet finishes inspired by island markets and Indian festivals.</p>
+          <p>Shalini’s Corner is part‑time and small‑batch: when the pots are empty, that’s it! Follow the weekly menu, order ahead, and treat yourself to flavors you won’t forget.</p>
+        </div>
+        <figure class="about-img">
+          <img src="assets/img/placeholder-plate.jpg" alt="A plated Mauritian x Indian dish" />
+          <figcaption>Swap this placeholder for your real photos (assets/img/).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="hours" class="container section">
+      <h2>Hours & Availability</h2>
+      <p>Cooking days vary week to week. Typically open <strong>Thu–Sat</strong>. Sunday pop‑ups happen occasionally—watch this space.</p>
+      <div class="hours">
+        <div class="card">
+          <h3>This Week</h3>
+          <ul id="openDays"></ul>
+          <small>Pre‑order windows open 24–48h before each service.</small>
+        </div>
+        <div class="card">
+          <h3>Pickup</h3>
+          <p><strong>Location:</strong> Shared on confirmation</p>
+          <p><strong>Time:</strong> In your order confirmation</p>
+          <p class="muted">Hot & ready. Please arrive within your pickup window.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="container section">
+      <h2>Order & Payments</h2>
+      <ol class="order-steps">
+        <li><strong>Check the menu</strong> above and confirm today’s availability.</li>
+        <li><strong>Place your order</strong> via <a href="mailto:orders@shaliniscorner.example?subject=Order%20Request">email</a> or <a href="tel:+1-000-000-0000">call/text</a>. Include items, quantities, and pickup day/time.</li>
+        <li>Wait for a <strong>confirmation message</strong> with total and pickup details.</li>
+        <li><strong>Pay</strong> using one of the methods below (or cash with exact change).</li>
+      </ol>
+
+      <div class="pay-grid">
+        <div class="pay-card">
+          <h3>PayPal</h3>
+          <p><a href="#" id="paypalLink" target="_blank" rel="noopener">paypal.me/shalinis-corner</a></p>
+        </div>
+        <div class="pay-card">
+          <h3>Zelle</h3>
+          <p>Send to: <strong id="zelleHandle">shalini@example.com</strong></p>
+        </div>
+        <div class="pay-card">
+          <h3>Venmo</h3>
+          <p>@<strong id="venmoHandle">ShaliniCooks</strong></p>
+        </div>
+        <div class="pay-card warn">
+          <h3>Cash</h3>
+          <p><strong>Exact change only.</strong> Small-batch kitchen—no till on site.</p>
+        </div>
+      </div>
+
+      <p class="muted">Note: Payments are processed outside this website. You’ll receive confirmation once your order is accepted.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Shalini’s Corner • Mauritian × Indian Home Kitchen</p>
+      <p class="tiny">Built as a simple, elegant static site—perfect for GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
