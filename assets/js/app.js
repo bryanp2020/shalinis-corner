@@ -2,7 +2,7 @@
 const menu = [
   { day: 'Monday',    items: [] },
   { day: 'Tuesday',   items: [
-    { name:'Chicken Biryani', img:'assets/img/menu/chicken-biriyani.jpg', tags:['spicy','halal'] },
+    { name:'Chicken Biryani', img:'assets/img/menu/chicken-biriyani.jpg', tags:['mild','halal'] },
     { name:'Veg Biryani', img:'assets/img/menu/veg-biryani.jpg', tags:['veg'] },
     { name:'Raita & Salad', img:'assets/img/menu/raita-salad.jpg', tags:['veg'] }
   ]},
