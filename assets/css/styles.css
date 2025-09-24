@@ -62,6 +62,12 @@ img{max-width:100%;display:block;border-radius:16px}
 
 .site-footer{padding:2rem 0;border-top:1px solid #eee;margin-top:2rem;text-align:center}
 
+.brand img.logo {
+  height: 48px;      /* adjust as needed */
+  width: auto;
+  display: block;
+}
+
 /* --- Menu item cards with photos --- */
 .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .menu-item{background:#fff;border:1px solid #eee;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
@@ -83,4 +89,6 @@ img{max-width:100%;display:block;border-radius:16px}
 @media (max-width: 540px){
   .menu-grid{grid-template-columns:1fr}
   .pay-grid{grid-template-columns:1fr}
+  .brand img.logo {height: 36px;  /* smaller on mobile */
+  }
 }
