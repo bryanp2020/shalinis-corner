@@ -1,7 +1,7 @@
-// Simple rotating menu and hours WITH PHOTOS
+// Menu & photos (same as prior) + mobile nav toggle
 const menu = [
-  { day: 'Monday',    items: [] },
-  { day: 'Tuesday',   items: [
+  { day: 'Monday', items: [] },
+  { day: 'Tuesday', items: [
     { name:'Chicken Biryani', img:'assets/img/menu/chicken-biriyani.jpg', tags:['Mild','halal'] },
     { name:'Veg Biryani', img:'assets/img/menu/veg-biryani.jpg', tags:['veg'] },
     { name:'Raita & Salad', img:'assets/img/menu/raita-salad.jpg', tags:['veg'] }
@@ -11,32 +11,31 @@ const menu = [
     { name:'Dal Tadka & Jeera Rice', img:'assets/img/menu/dal-tadka-jeera-rice.jpg', tags:['veg'] },
     { name:'Garlic Naan', img:'assets/img/menu/garlic-naan.jpg', tags:['veg'] }
   ]},
-  { day: 'Thursday',  items: [
+  { day: 'Thursday', items: [
     { name:'Mauritian Dholl Puri (2)', img:'assets/img/menu/dholl-puri.jpg', tags:['veg'] },
     { name:'Cari Gros Pois (butter bean curry)', img:'assets/img/menu/cari-gros-pois.jpg', tags:['veg'] },
     { name:'Mazavaroo (chili paste)', img:'assets/img/menu/mazavaroo.jpg', tags:['spicy','veg'] }
   ]},
-  { day: 'Friday',    items: [
+  { day: 'Friday', items: [
     { name:'Fish Vindaye', img:'assets/img/menu/fish-vindaye.jpg', tags:[] },
     { name:'Farata (paratha) (2)', img:'assets/img/menu/farata.jpg', tags:['veg'] },
     { name:'Gateau Piment (chili fritters) (6)', img:'assets/img/menu/gateau-piment.jpg', tags:['spicy','veg'] }
   ]},
-  { day: 'Saturday',  items: [
+  { day: 'Saturday', items: [
     { name:'Lamb Curry & Basmati', img:'assets/img/menu/lamb-curry.jpg', tags:['halal'] },
     { name:'Aloo Gobi', img:'assets/img/menu/aloo-gobi.jpg', tags:['veg'] },
     { name:'Roti (2)', img:'assets/img/menu/roti.jpg', tags:['veg'] }
   ]},
-  { day: 'Sunday',    items: [
+  { day: 'Sunday', items: [
     { name:'Special Pop-Up: Chef’s Choice', img:'assets/img/menu/chefs-choice.jpg', tags:[] }
   ]},
 ];
 
-const typicalOpenDays = ['Thursday','Friday','Saturday']; // tweak as needed
+const typicalOpenDays = ['Thursday','Friday','Saturday'];
 
 function renderTodaySpecial(){
   const d = new Date();
-  const todayIdx = d.getDay(); // 0 Sun .. 6 Sat
-  const dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][todayIdx];
+  const dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()];
   const today = menu.find(m => m.day === dayName);
   const el = document.querySelector('#todaySpecial .special-body');
   if (!today || today.items.length === 0){
@@ -84,20 +83,26 @@ function renderOpenDays(){
   ul.innerHTML = typicalOpenDays.map(d => `<li><strong>${d}</strong> — rotating menu, limited quantities</li>`).join('');
 }
 
-function label(t){
-  return t === 'veg' ? 'Vegetarian' : (t === 'spicy' ? 'Spicy' : (t === 'halal' ? 'Halal-friendly' : t));
-}
-
-function renderTags(tags){
-  if (!tags || !tags.length) return '';
-  return `&nbsp;${tags.map(t => `<span class="chip ${t}">${label(t)}</span>`).join(' ')}`;
-}
-
+function label(t){ return t === 'veg' ? 'Vegetarian' : (t === 'spicy' ? 'Spicy' : (t === 'halal' ? 'Halal-friendly' : t)); }
+function renderTags(tags){ if(!tags||!tags.length) return ''; return `&nbsp;${tags.map(t=>`<span class="chip ${t}">${label(t)}</span>`).join(' ')}`; }
 function setYear(){ document.getElementById('year').textContent = new Date().getFullYear(); }
+
+// --- Mobile nav toggle
+function initMobileNav(){
+  const btn = document.getElementById('navToggle');
+  const panel = document.getElementById('mobileMenu');
+  if(!btn || !panel) return;
+  const close = () => { btn.classList.remove('active'); btn.setAttribute('aria-expanded','false'); panel.hidden = true; }
+  const open  = () => { btn.classList.add('active'); btn.setAttribute('aria-expanded','true'); panel.hidden = false; }
+  btn.addEventListener('click', () => { panel.hidden ? open() : close(); });
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') close(); });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   renderTodaySpecial();
   renderMenuGrid();
   renderOpenDays();
   setYear();
+  initMobileNav();
 });
