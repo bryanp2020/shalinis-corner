@@ -1,122 +1,389 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kajal's Corner • Mauritian x Indian Home Kitchen</title>
-  <meta name="description" content="Small-batch, home-style Mauritian and Indian dishes made with love. Rotating menu on select days.">
+  <title>Chic Flavors by Shalini — Indian & Mauritian Cooking Classes</title>
+  <meta name="description" content="Live Indian & Mauritian cooking classes with weekly menus, ingredient lists, recipe PDFs, and video recaps. Group sessions and private coaching." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14;          /* deep charcoal */
+      --panel:#111826;       /* card bg */
+      --panel-2:#0f1521;     /* hover card */
+      --text:#e8eef7;        /* primary text */
+      --muted:#9eb1cc;       /* secondary text */
+      --brand:#16b38a;       /* emerald/teal */
+      --brand-2:#11a179;     /* darker teal */
+      --accent:#f6c453;      /* warm saffron */
+      --danger:#f87171;      /* red */
+      --ok:#34d399;          /* green */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 20px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b0f14 0%, #0b1017 60%, #0c1120 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block}
+    .container{max-width:1150px;margin:0 auto;padding:24px}
+    .hero{padding:64px 0 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--bg);background:linear-gradient(90deg,var(--accent),#ffd98b);padding:8px 14px;border-radius:999px}
+    h1{font-size:clamp(34px,4vw,54px);line-height:1.05;margin:14px 0 12px}
+    .lead{font-size:clamp(16px,2.1vw,20px);color:var(--muted);max-width:56ch}
+    .note{margin-top:16px;background:rgba(22,179,138,.12);border:1px solid rgba(22,179,138,.35);padding:14px;border-radius:14px;color:#d6fff1}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{appearance:none;border:0;border-radius:14px;padding:14px 18px;font-weight:700;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
+    .btn-primary{background:linear-gradient(180deg,var(--brand),var(--brand-2));color:#041c15}
+    .btn-primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.14)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);backdrop-filter: blur(6px);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .section{padding:52px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .how-step{padding:22px}
+    .how-step h3{margin:6px 0 6px;font-size:18px}
+    .how-step p{color:var(--muted);font-size:15px}
+    .list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .list li{display:flex;gap:10px;align-items:flex-start}
+    .list .dot{width:8px;height:8px;border-radius:999px;background:var(--brand);margin-top:8px}
+
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .plan{padding:26px;position:relative;overflow:hidden}
+    .pill{position:absolute;top:16px;right:-40px;transform:rotate(35deg);background:var(--accent);color:#2b1b00;padding:6px 60px;font-weight:800;letter-spacing:.6px}
+    .price{font-size:36px;margin:8px 0 6px}
+    .per{color:var(--muted);font-size:14px}
+    .feat{display:grid;gap:10px;margin:16px 0}
+    .feat div{display:flex;gap:10px}
+    .check{width:18px;height:18px;border-radius:4px;background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.5);display:inline-grid;place-items:center}
+    .small{font-size:13px;color:var(--muted)}
+
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .faq .qa{padding:20px}
+    .qa h4{margin:0 0 8px}
+    .qa p{margin:0;color:var(--muted)}
+
+    .footer{padding:28px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
+
+    .pill-consent{margin-top:10px;font-size:12px;color:#cfe9ff}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(6,10,16,.6);z-index:40}
+    .modal.active{display:grid}
+    .modal-card{background:var(--panel);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;max-width:520px;width:92%}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;}
+    }
+    @media (max-width:860px){
+      .grid-3{grid-template-columns:1fr}
+      .plans{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#home"><img src="assets/img/kajal-corner-logo.png" alt="Kajal Corner" class="logo"></a>
-      <nav aria-label="Primary">
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#hours">Hours</a>
-        <a href="#order">Order & Payments</a>
-      </nav>
-      <button class="hamburger" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-    </div>
-    <div id="mobileMenu" class="mobile-menu" hidden>
-      <a href="#menu" class="mobile-link">Menu</a>
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#hours" class="mobile-link">Hours</a>
-      <a href="#order" class="mobile-link">Order & Payments</a>
+  <header class="container">
+    <div class="hero">
+      <div>
+        <div class="badge">Live Classes • Recipes • Video Recaps</div>
+        <h1>Chic Flavors by Shalini: Learn Indian and Mauritian cooking, step‑by‑step—live each week.</h1>
+        <p class="lead">Hands-on sessions on Google Meet, simple shopping lists, and foolproof recipes—so you can cook unforgettable Indian and Mauritian dishes without guesswork.</p>
+        <div class="note"><strong>Important:</strong> No beef or pork will be cooked. Recipes feature <em>vegetarian, chicken, lamb, goat, and select seafood</em>.</div>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-scroll="#pricing">Start cooking — from $49.99/mo</button>
+          <button class="btn btn-ghost" data-scroll="#how">How it works</button>
+        </div>
+      </div>
+      <div class="card" style="padding:14px;overflow:hidden">
+        <img alt="Colourful Indian and Mauritian dishes on a table" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop"/> 
+      </div>
     </div>
   </header>
 
-  <main id="home">
-    <section class="hero container">
-      <div class="hero-text">
-        <h1>Mauritian × Indian flavors, made at home.</h1>
-        <p>Kajal is Mauritian-born and cooks from the heart—sharing rich culture through soul-warming dishes that’ll blow your mind.</p>
-        <a class="btn" href="#menu">See This Week’s Menu</a>
-        <p class="note">Small-batch cooking • Select days only • Rotating menu</p>
-      </div>
-      <div class="hero-card" id="todaySpecial">
-        <h3>Today's Special</h3>
-        <div class="special-body"><p>Loading…</p></div>
-        <small class="hint">Dishes rotate by day. Pre-orders recommended!</small>
-      </div>
-    </section>
-
-    <section id="menu" class="container section">
-      <h2>Rotating Menu</h2>
-      <p class="section-intro">Now with photos! Availability changes by day—check “Hours” and pre-order early.</p>
-      <div id="menuGrid" class="menu-grid"></div>
-      <div class="legend">
-        <span class="chip veg">Vegetarian</span>
-        <span class="chip spicy">Spicy</span>
-        <span class="chip halal">Halal-friendly</span>
-      </div>
-    </section>
-
-    <section id="about" class="container section">
-      <div class="about-wrap">
-        <div>
-          <h2>About Kajal</h2>
-          <p>Born in Mauritius with roots that intertwine the best of Mauritian and Indian traditions, Kajal cooks the way families do—slow, careful, and generous.</p>
-          <p>Kajal’s Corner is part-time and small-batch: when the pots are empty, that’s it! Follow the weekly menu, order ahead, and treat yourself to flavors you won’t forget.</p>
+  <main>
+    <section id="how" class="container section">
+      <h2>How it works</h2>
+      <div class="grid-3">
+        <div class="card how-step">
+          <h3>1) Pick a plan</h3>
+          <p>Choose 8 or 16 live group sessions per month—or go Private 1:1.</p>
         </div>
-        <figure class="about-img">
-          <img src="assets/img/placeholder-plate.jpg" alt="A plated Mauritian x Indian dish" />
-          <figcaption>Swap this placeholder for your real photos (assets/img/).</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="hours" class="container section">
-      <h2>Hours & Availability</h2>
-      <p>Cooking days vary week to week. Typically open <strong>Thu–Sat</strong>.</p>
-      <div class="hours">
-        <div class="card">
-          <h3>This Week</h3>
-          <ul id="openDays"></ul>
-          <small>Pre-order windows open 24–48h before each service.</small>
+        <div class="card how-step">
+          <h3>2) Get your weekly menu</h3>
+          <p>We email you the menu & ingredient list <strong>2–5 days ahead</strong> so you can shop easily.</p>
         </div>
-        <div class="card">
-          <h3>Pickup</h3>
-          <p><strong>Location:</strong> Shared on confirmation</p>
-          <p><strong>Time:</strong> In your order confirmation</p>
-          <p class="muted">Hot & ready. Please arrive within your pickup window.</p>
+        <div class="card how-step">
+          <h3>3) Cook together, then keep it forever</h3>
+          <p>Join via Google Meet. After every session you’ll receive the recipe PDF and a video recap.</p>
         </div>
       </div>
     </section>
 
-    <section id="order" class="container section">
-      <h2>Order & Payments</h2>
-      <ol class="order-steps">
-        <li><strong>Check the menu</strong> above and confirm today’s availability.</li>
-        <li><strong>Place your order</strong> via <a href="mailto:orders@Kajalscorner.example?subject=Order%20Request">email</a> or <a href="tel:+1-000-000-0000">call/text</a>.</li>
-        <li>Wait for a <strong>confirmation message</strong> with total and pickup details.</li>
-        <li><strong>Pay</strong> using one of the methods below (or cash with exact change).</li>
-      </ol>
-
-      <div class="pay-grid">
-        <div class="pay-card"><h3>PayPal</h3><p><a href="#" id="paypalLink" target="_blank" rel="noopener">paypal.me/Kajals-corner</a></p></div>
-        <div class="pay-card"><h3>Zelle</h3><p>Send to: <strong id="zelleHandle">Kajal@example.com</strong></p></div>
-        <div class="pay-card"><h3>Venmo</h3><p>@<strong id="venmoHandle">KajalCooks</strong></p></div>
-        <div class="pay-card warn"><h3>Cash</h3><p><strong>Exact change only.</strong></p></div>
+    <section class="container section">
+      <h2>What you’ll learn</h2>
+      <div class="card" style="padding:22px">
+        <ul class="list">
+          <li><span class="dot"></span><span>Foundations: tempering spices, layering flavor, balancing heat & acidity.</span></li>
+          <li><span class="dot"></span><span>Indian classics: dal tadka, chicken curry, paneer tikka masala, parathas, biryani.</span></li>
+          <li><span class="dot"></span><span>Mauritian favorites: rougaille, dholl puri, vindaye, farata, fish/veg curries, achard.</span></li>
+          <li><span class="dot"></span><span>Smart substitutions for local availability and dietary needs.</span></li>
+          <li><span class="dot"></span><span>Time-saving prep so dinner fits real life.</span></li>
+        </ul>
       </div>
+    </section>
 
-      <p class="muted">Note: Payments are processed outside this website.</p>
+    <section id="pricing" class="container section">
+      <h2>Plans & Pricing</h2>
+      <p class="small">All plans include: live Google Meet cooking, weekly menu & ingredient list (2–5 days ahead), recipe PDFs, and a video recap after every session. Cancel anytime.</p>
+      <div class="plans">
+        <!-- Starter Plan -->
+        <article class="card plan" aria-labelledby="starter-title">
+          <h3 id="starter-title">Starter</h3>
+          <div class="price">$49.99<span class="per">/mo</span></div>
+          <div class="feat">
+            <div><span class="check">✓</span><span><strong>8</strong> live group sessions / month</span></div>
+            <div><span class="check">✓</span><span>Weekly menu & shopping list</span></div>
+            <div><span class="check">✓</span><span>Recipe PDFs + video recaps</span></div>
+            <div><span class="check">✓</span><span>Community Q&A at the end</span></div>
+          </div>
+          <label class="small"><input type="checkbox" id="consent-starter"/> I agree to receive instructional and marketing emails.</label>
+          <div id="paypal-starter" style="margin-top:12px"></div>
+          <button class="btn btn-ghost" data-open="zelleModal" data-plan="Starter">Pay with Zelle</button>
+        </article>
+
+        <!-- Pro Plan -->
+        <article class="card plan" aria-labelledby="pro-title">
+          <div class="pill">Popular</div>
+          <h3 id="pro-title">Pro</h3>
+          <div class="price">$79.99<span class="per">/mo</span></div>
+          <div class="feat">
+            <div><span class="check">✓</span><span><strong>16</strong> live group sessions / month</span></div>
+            <div><span class="check">✓</span><span>Everything in Starter</span></div>
+            <div><span class="check">✓</span><span>Priority Q&A during class</span></div>
+            <div><span class="check">✓</span><span>Monthly deep-dive mini-lessons</span></div>
+          </div>
+          <label class="small"><input type="checkbox" id="consent-pro"/> I agree to receive instructional and marketing emails.</label>
+          <div id="paypal-pro" style="margin-top:12px"></div>
+          <button class="btn btn-ghost" data-open="zelleModal" data-plan="Pro">Pay with Zelle</button>
+        </article>
+
+        <!-- Private Plan -->
+        <article class="card plan" aria-labelledby="private-title">
+          <h3 id="private-title">Private</h3>
+          <div class="price">$179.99<span class="per">/mo</span></div>
+          <div class="feat">
+            <div><span class="check">✓</span><span>1:1 private sessions (flex scheduling)</span></div>
+            <div><span class="check">✓</span><span>Personalized menus & adjustments</span></div>
+            <div><span class="check">✓</span><span>Direct feedback on technique</span></div>
+            <div><span class="check">✓</span><span>Goal-focused coaching</span></div>
+          </div>
+          <label class="small"><input type="checkbox" id="consent-private"/> I agree to receive instructional and marketing emails.</label>
+          <div id="paypal-private" style="margin-top:12px"></div>
+          <button class="btn btn-ghost" data-open="zelleModal" data-plan="Private">Pay with Zelle</button>
+        </article>
+      </div>
+      <p class="pill-consent">By completing purchase, you consent to receive order confirmations, class details, and occasional marketing from Chic Flavors by Shalini. You can unsubscribe anytime.</p>
+    </section>
+
+    <section class="container section">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <div class="card qa">
+          <h4>Do I need special equipment?</h4>
+          <p>A <strong>pressure cooker or Instant Pot</strong> is needed. A standard stove, a pan/pot, and basic utensils are perfect.</p>
+        </div>
+        <div class="card qa">
+          <h4>What if I can’t find certain spices?</h4>
+          <p>We provide smart substitutions and brand tips so you always have a path to success.</p>
+        </div>
+        <div class="card qa">
+          <h4>Are sessions recorded?</h4>
+          <p>Yes. You’ll receive a <strong>video recap</strong> and <strong>PDF recipe</strong> after each class.</p>
+        </div>
+        <div class="card qa">
+          <h4>What if I miss a live session?</h4>
+          <p>You still receive the recap video and recipe. Pro/Private can request notes for tricky steps.</p>
+        </div>
+        <div class="card qa">
+          <h4>Dietary needs?</h4>
+          <p>We offer vegetarian, vegan, and gluten‑conscious swaps in most recipes. Private plans can fully customize menus.</p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Kajal’s Corner • Mauritian × Indian Home Kitchen</p>
-      <p class="tiny">Designed & Maintained by Build Better Growth, LLC</p>
+  <footer class="container footer">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Chic Flavors by Shalini. All rights reserved.</div>
+      <div>
+        <a href="#" id="openContact">Contact</a> • 
+        <a href="#" id="openPrivacy">Privacy</a>
+      </div>
     </div>
   </footer>
 
-  <script src="assets/js/app.js" defer></script>
+  <!-- Zelle Modal -->
+  <div class="modal" id="zelleModal" role="dialog" aria-modal="true" aria-labelledby="zelleTitle">
+    <div class="modal-card">
+      <h3 id="zelleTitle" style="margin-top:0">Pay with Zelle®</h3>
+      <p class="small">Use your banking app to send payment to <strong>zelle@spiceandisland.com</strong>. Add your email in the memo.</p>
+      <form id="zelleForm">
+        <div style="display:grid;gap:10px;margin:12px 0">
+          <input name="name" required placeholder="Full name" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:var(--panel);color:var(--text)">
+          <input type="email" name="email" required placeholder="Email (for confirmations)" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:var(--panel);color:var(--text)">
+          <input name="txn" placeholder="Zelle confirmation / memo" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:var(--panel);color:var(--text)">
+          <input name="plan" id="zellePlan" readonly style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:var(--panel);color:var(--muted)" value="Starter">
+          <label class="small"><input type="checkbox" name="consent" required> I agree to receive instructional and marketing emails.</label>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:flex-end">
+          <button type="button" class="btn btn-ghost" data-close>Cancel</button>
+          <button class="btn btn-primary" type="submit">I’ve paid via Zelle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Generic Modal for Contact/Privacy -->
+  <div class="modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <div class="modal-card">
+      <h3 id="infoTitle" style="margin-top:0">Info</h3>
+      <div id="infoBody" class="small"></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px">
+        <button class="btn btn-primary" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal-card">
+      <h3 id="successTitle" style="margin-top:0">You’re in! 🎉</h3>
+      <p>We’ve sent your confirmation. Watch your inbox for your <strong>Welcome</strong> email and the <strong>Menu & Ingredients</strong> email (2–5 days before class).</p>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px">
+        <button class="btn btn-primary" data-close>Great</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PayPal SDK (Replace YOUR_CLIENT_ID) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription&components=buttons&currency=USD"></script>
+  <script>
+    const WEBHOOK_URL = "https://hooks.make.com/REPLACE_WITH_YOUR_WEBHOOK"; // Make/Zapier/Serverless endpoint
+    const PAYPAL_PLANS = {
+      starter: "P-STARTER_PLAN_ID", // Create in PayPal > Subscriptions > Plans
+      pro: "P-PRO_PLAN_ID",
+      private: "P-PRIVATE_PLAN_ID"
+    };
+
+    const planConsent = {
+      starter: () => document.getElementById('consent-starter').checked,
+      pro: () => document.getElementById('consent-pro').checked,
+      private: () => document.getElementById('consent-private').checked,
+    };
+
+    // Smooth scroll
+    document.querySelectorAll('[data-scroll]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const target = document.querySelector(btn.getAttribute('data-scroll'));
+        if(target) target.scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // Zelle modal open
+    document.querySelectorAll('[data-open="zelleModal"]').forEach(b=>{
+      b.addEventListener('click',()=>{
+        document.getElementById('zellePlan').value = b.getAttribute('data-plan')||'Starter';
+        document.getElementById('zelleModal').classList.add('active');
+      })
+    })
+    // Modal close
+    document.querySelectorAll('[data-close]').forEach(b=>{
+      b.addEventListener('click',()=> b.closest('.modal').classList.remove('active'))
+    })
+
+    // Info modal contents
+    const infoModal = document.getElementById('infoModal');
+    document.getElementById('openContact').addEventListener('click', (e)=>{
+      e.preventDefault();
+      document.getElementById('infoTitle').textContent = 'Contact';
+      document.getElementById('infoBody').innerHTML = 'Email: <a href="mailto:hello@spiceandisland.com">hello@spiceandisland.com</a><br>Phone/WhatsApp: +1 (555) 555‑1212';
+      infoModal.classList.add('active');
+    });
+    document.getElementById('openPrivacy').addEventListener('click', (e)=>{
+      e.preventDefault();
+      document.getElementById('infoTitle').textContent = 'Privacy';
+      document.getElementById('infoBody').innerHTML = 'We use your email to send purchase confirmations, class details, menus, recipes, and occasional marketing. Unsubscribe anytime with one click.';
+      infoModal.classList.add('active');
+    });
+
+    // Helper to call webhook
+    async function postWebhook(payload){
+      try{
+        await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      }catch(err){
+        console.error('Webhook failed', err);
+      }
+    }
+
+    // Render PayPal subscription buttons
+    function renderButton(elId, planKey, planLabel){
+      if(!window.paypal) return;
+      paypal.Buttons({
+        style:{ layout:'vertical', color:'gold', shape:'rect', label:'subscribe' },
+        onInit: function(data, actions){
+          const consentOk = planConsent[planKey]();
+          if(!consentOk) actions.disable();
+          document.getElementById(`consent-${planKey}`).addEventListener('change', (e)=>{
+            e.target.checked ? actions.enable() : actions.disable();
+          });
+        },
+        createSubscription: function(data, actions){
+          // Requires PayPal subscription plan IDs configured in the PayPal dashboard
+          return actions.subscription.create({ plan_id: PAYPAL_PLANS[planKey] });
+        },
+        onApprove: async function(data, actions){
+          // data.subscriptionID
+          const payload = {
+            source: 'paypal',
+            type: 'subscription',
+            plan: planLabel,
+            subscriptionID: data.subscriptionID,
+            consent: true
+          };
+          await postWebhook(payload);
+          document.getElementById('successModal').classList.add('active');
+        },
+        onError: function(err){ console.error(err); alert('Payment error. Please try again or contact us.'); }
+      }).render(`#${elId}`);
+    }
+
+    renderButton('paypal-starter', 'starter', 'Starter');
+    renderButton('paypal-pro', 'pro', 'Pro');
+    renderButton('paypal-private', 'private', 'Private');
+
+    // Zelle form submission — sends a webhook so your automation can email the customer
+    document.getElementById('zelleForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const data = Object.fromEntries(fd.entries());
+      await postWebhook({
+        source:'zelle',
+        type:'manual_confirm',
+        name:data.name,
+        email:data.email,
+        txn:data.txn||null,
+        plan:data.plan,
+        consent: !!fd.get('consent')
+      });
+      e.target.closest('.modal').classList.remove('active');
+      document.getElementById('successModal').classList.add('active');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
