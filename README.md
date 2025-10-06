@@ -1,17 +1,15 @@
-# Shalini's Corner — Static Site (with Menu Photos)
-
-Photos are now supported for each menu item.
-
-## Add/Replace Photos
-- Put your images in `assets/img/menu/`
-- Keep the same filenames (e.g., `chicken-biryani.jpg`) **or** update the `img` path for each item in `assets/js/app.js`.
-
-## Where to Edit
-- **Menu & Photos:** `assets/js/app.js` — each item has an `img` field.
-- **Open Days:** `typicalOpenDays` inside `assets/js/app.js`.
-- **About / Contact / Payments:** `index.html`.
-
-## Deploy to GitHub Pages (Web UI)
-1. Create a new repo on GitHub.
-2. Upload all files.
-3. Settings → Pages → Deploy from a branch → `main` / root.
+  <!--
+  ==============================================
+  BACKEND/AUTOMATION NOTES (copy into your README)
+  ==============================================
+  1) Replace YOUR_PAYPAL_CLIENT_ID in the SDK script tag.
+  2) Create three PayPal Subscription Plans (Starter $49.99/mo, Pro $79.99/mo, Private $179.99/mo). Replace the placeholders in PAYPAL_PLANS above.
+  3) Set WEBHOOK_URL to your automation endpoint (Make.com, Zapier, or your own serverless function):
+     Expected payload from PayPal buttons: { source:'paypal', type:'subscription', plan:'Starter|Pro|Private', subscriptionID:'...' , consent:true }
+     Expected payload from Zelle form:     { source:'zelle', type:'manual_confirm', name:'', email:'', txn:'', plan:'', consent:true }
+  4) In your automation, send TWO emails after payment/confirmation:
+     a) Order Confirmation (immediately)
+     b) Thank You + Upcoming Menu & Ingredient List (immediately; also record email consent in your ESP)
+  5) Store contacts in Mailchimp/ConvertKit/HubSpot and tag by plan. Use the consent flag to subscribe to marketing.
+  6) For video delivery, schedule Google Meet links and send Unlisted YouTube/Vimeo recap URLs post-session.
+  -->
